@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create a working directory:
-data="/mnt/data/Aoce"
+data="/home/rstudio/data/mydatalocal/data"
 mkdir -p $data
 cd $data
 
@@ -24,7 +24,7 @@ do
 
 fastq-dump -h
 
-# Rename sequence names, trinity need that their name ends with "/1".
+# Rename sequence names, trinity need that their name ends with "/1" for R1 and "/2" for R2.
 
 awk  '{ if (NR%2 == 1 ) {gsub("\\.","_");print $1"/1"}  else  { print $0}}' 
 
